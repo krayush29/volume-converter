@@ -1,19 +1,19 @@
 package org.example.service;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.example.enums.VolumeUnits;
 
-import static org.example.constant.UnitConstant.LITER;
 import static org.example.repository.VolumeRepository.conversionFactors;
 
 
 public class VolumeConvertor {
 
-    public double convert(String fromUnit, String toUnit, double value) {
-        ImmutablePair<String, String> conversionKey = new ImmutablePair<>(fromUnit, toUnit);
+    public double convert(VolumeUnits fromUnit, VolumeUnits toUnit, double value) {
+        ImmutablePair<VolumeUnits, VolumeUnits> conversionKey = new ImmutablePair<>(fromUnit, toUnit);
         Double conversionFactor = conversionFactors.get(conversionKey);
         if (conversionFactor == null){
-            ImmutablePair<String, String> conversionToBaseKey = new ImmutablePair<>(fromUnit, LITER);
-            ImmutablePair<String, String> conversionFromBaseKey = new ImmutablePair<>(LITER, toUnit);
+            ImmutablePair<VolumeUnits, VolumeUnits> conversionToBaseKey = new ImmutablePair<>(fromUnit, VolumeUnits.LITER);
+            ImmutablePair<VolumeUnits, VolumeUnits> conversionFromBaseKey = new ImmutablePair<>(VolumeUnits.LITER, toUnit);
 
             Double conversionFactorToBase = conversionFactors.get(conversionToBaseKey);
             Double conversionFactorFromBase = conversionFactors.get(conversionFromBaseKey);
