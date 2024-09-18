@@ -7,7 +7,7 @@ import org.example.enums.VolumeUnits;
 import static org.example.repository.MetricRepository.conversionFactors;
 
 
-public class Volume implements Metric{
+public class Volume extends Metric{
 
     private final VolumeUnits unit;
     private final double value;
@@ -19,15 +19,13 @@ public class Volume implements Metric{
 
     @Override
     public double convert(MetricUnit toUnit) {
-        ImmutablePair<MetricUnit, MetricUnit> conversionToBaseKey = new ImmutablePair<>(unit, VolumeUnits.LITER);
-        ImmutablePair<MetricUnit, MetricUnit> conversionToUnitKey = new ImmutablePair<>(VolumeUnits.LITER, toUnit);
+        return value * getConversionFactor(unit, toUnit, VolumeUnits.LITER);
+    }
 
-        Double conversionFactorToBase = conversionFactors.get(conversionToBaseKey);
-        Double conversionFactorToUnit = conversionFactors.get(conversionToUnitKey);
+    public double add(MetricUnit addendUnit){
+        ImmutablePair<MetricUnit, MetricUnit> conversionKey = new ImmutablePair<>(addendUnit, unit);
+        Double conversionFactor = conversionFactors.get(conversionKey);
 
-        if(conversionFactorToBase == null || conversionFactorToUnit == null)
-            throw new IllegalArgumentException("Conversion from " + unit + " to " + toUnit + " is not supported.");
-
-        return value * conversionFactorToBase * conversionFactorToUnit;
+        return value + (1.0 * conversionFactor);
     }
 }

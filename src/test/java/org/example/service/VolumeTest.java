@@ -106,4 +106,28 @@ class VolumeTest {
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
+
+    // should be able to add 1 litre and 1 mililitre and get 1.001 litre
+//    @Test
+//    public void testAdd1LiterTo1Milliliter() {
+//        double value = 1.0;
+//        Volume volume = new Volume(VolumeUnits.LITER, value);
+//
+//        double expectedOutput = 1.001;
+//        double actualOutput = volume.add(VolumeUnits.MILLILITER);
+//
+//        assertEquals(expectedOutput, actualOutput, DELTA);
+//    }
+
+    // should be able to add 1 centilitre adn 1 litre and get 101 centilitre
+    @Test
+    public void testAdd1CentiliterTo1Liter() {
+        double value = 1.0;
+        Volume volume = new Volume(VolumeUnits.CENTILITER, value);
+
+        double expectedOutput = 101;
+        double actualOutput = volume.add(VolumeUnits.LITER);
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
 }
