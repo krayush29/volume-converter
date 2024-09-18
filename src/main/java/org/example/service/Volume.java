@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.example.enums.MetricUnit;
 import org.example.enums.VolumeUnits;
 
 import static org.example.repository.MetricRepository.conversionFactors;
@@ -8,20 +9,22 @@ import static org.example.repository.MetricRepository.conversionFactors;
 
 public class Volume implements Metric{
 
-    private final String unit;
+    private final VolumeUnits unit;
     private final double value;
 
-    public Volume(String unit, double value) {
+    public Volume(VolumeUnits unit, double value) {
         this.unit = unit;
         this.value = value;
     }
 
-    public double convert(String toUnit) {
-        ImmutablePair<String, String> conversionKey = new ImmutablePair<>(unit, toUnit);
+    @Override
+    public double convert(MetricUnit toUnit) {
+        ImmutablePair<MetricUnit, MetricUnit> conversionKey = new ImmutablePair<>(unit, toUnit);
         Double conversionFactor = conversionFactors.get(conversionKey);
+
         if (conversionFactor == null){
-            ImmutablePair<String, String> conversionToBaseKey = new ImmutablePair<>(unit, VolumeUnits.LITER.toString());
-            ImmutablePair<String, String> conversionFromBaseKey = new ImmutablePair<>(VolumeUnits.LITER.toString(), toUnit);
+            ImmutablePair<MetricUnit, MetricUnit> conversionToBaseKey = new ImmutablePair<>(unit, VolumeUnits.LITER);
+            ImmutablePair<MetricUnit, MetricUnit> conversionFromBaseKey = new ImmutablePair<>(VolumeUnits.LITER, toUnit);
 
             Double conversionFactorToBase = conversionFactors.get(conversionToBaseKey);
             Double conversionFactorFromBase = conversionFactors.get(conversionFromBaseKey);

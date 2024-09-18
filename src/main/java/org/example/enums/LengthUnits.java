@@ -1,5 +1,5 @@
 package org.example.enums;
 
-public enum LengthUnits {
-    METER, MILLIMETER, CENTIMETER, DECIMETER, DECAMETER, KILOMETER;
+public enum LengthUnits implements MetricUnit {
+    METER, MILLIMETER, CENTIMETER, DECIMETER, DECAMETER, KILOMETER
 }

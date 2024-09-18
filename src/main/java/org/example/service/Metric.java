@@ -1,5 +1,7 @@
 package org.example.service;
 
+import org.example.enums.MetricUnit;
+
 public interface Metric {
-    public double convert(String toUnit);
+    double convert(MetricUnit toUnit);
 }
