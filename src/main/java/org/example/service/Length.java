@@ -17,21 +17,15 @@ public class Length implements Metric{
 
     @Override
     public double convert(MetricUnit toUnit) {
-        ImmutablePair<MetricUnit, MetricUnit> conversionKey = new ImmutablePair<>(unit, toUnit);
-        Double conversionFactor = conversionFactors.get(conversionKey);
-        if (conversionFactor == null){
-            ImmutablePair<MetricUnit, MetricUnit> conversionToBaseKey = new ImmutablePair<>(unit, LengthUnits.METER);
-            ImmutablePair<MetricUnit, MetricUnit> conversionFromBaseKey = new ImmutablePair<>(LengthUnits.METER, toUnit);
+        ImmutablePair<MetricUnit, MetricUnit> conversionToBaseKey = new ImmutablePair<>(unit, LengthUnits.METER);
+        ImmutablePair<MetricUnit, MetricUnit> conversionToUnitKey = new ImmutablePair<>(LengthUnits.METER, toUnit);
 
-            Double conversionFactorToBase = conversionFactors.get(conversionToBaseKey);
-            Double conversionFactorFromBase = conversionFactors.get(conversionFromBaseKey);
+        Double conversionFactorToBase = conversionFactors.get(conversionToBaseKey);
+        Double conversionFactorToUnit = conversionFactors.get(conversionToUnitKey);
 
-            if(conversionFactorToBase == null || conversionFactorFromBase == null)
-                throw new IllegalArgumentException("Conversion from " + unit + " to " + toUnit + " is not supported.");
+        if(conversionFactorToBase == null || conversionFactorToUnit == null)
+            throw new IllegalArgumentException("Conversion from " + unit + " to " + toUnit + " is not supported.");
 
-            return value * conversionFactorToBase * conversionFactorFromBase;
-        }
-
-        return value * conversionFactor;
+        return value * conversionFactorToBase * conversionFactorToUnit;
     }
 }

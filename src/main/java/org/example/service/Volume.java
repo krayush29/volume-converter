@@ -19,22 +19,15 @@ public class Volume implements Metric{
 
     @Override
     public double convert(MetricUnit toUnit) {
-        ImmutablePair<MetricUnit, MetricUnit> conversionKey = new ImmutablePair<>(unit, toUnit);
-        Double conversionFactor = conversionFactors.get(conversionKey);
+        ImmutablePair<MetricUnit, MetricUnit> conversionToBaseKey = new ImmutablePair<>(unit, VolumeUnits.LITER);
+        ImmutablePair<MetricUnit, MetricUnit> conversionToUnitKey = new ImmutablePair<>(VolumeUnits.LITER, toUnit);
 
-        if (conversionFactor == null){
-            ImmutablePair<MetricUnit, MetricUnit> conversionToBaseKey = new ImmutablePair<>(unit, VolumeUnits.LITER);
-            ImmutablePair<MetricUnit, MetricUnit> conversionFromBaseKey = new ImmutablePair<>(VolumeUnits.LITER, toUnit);
+        Double conversionFactorToBase = conversionFactors.get(conversionToBaseKey);
+        Double conversionFactorToUnit = conversionFactors.get(conversionToUnitKey);
 
-            Double conversionFactorToBase = conversionFactors.get(conversionToBaseKey);
-            Double conversionFactorFromBase = conversionFactors.get(conversionFromBaseKey);
+        if(conversionFactorToBase == null || conversionFactorToUnit == null)
+            throw new IllegalArgumentException("Conversion from " + unit + " to " + toUnit + " is not supported.");
 
-            if(conversionFactorToBase == null || conversionFactorFromBase == null)
-                throw new IllegalArgumentException("Conversion from " + unit + " to " + toUnit + " is not supported.");
-
-            return value * conversionFactorToBase * conversionFactorFromBase;
-        }
-
-        return value * conversionFactor;
+        return value * conversionFactorToBase * conversionFactorToUnit;
     }
 }
