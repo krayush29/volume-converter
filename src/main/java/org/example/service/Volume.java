@@ -6,30 +6,28 @@ import org.example.enums.VolumeUnits;
 import static org.example.repository.VolumeRepository.conversionFactors;
 
 
-public class VolumeConvertor {
+public class Volume {
 
-    private final VolumeUnits fromUnit;
-    private final VolumeUnits toUnit;
+    private final VolumeUnits unit;
     private final double value;
 
-    public VolumeConvertor(VolumeUnits fromUnit, VolumeUnits toUnit, double value) {
-        this.fromUnit = fromUnit;
-        this.toUnit = toUnit;
+    public Volume(VolumeUnits unit, double value) {
+        this.unit = unit;
         this.value = value;
     }
 
-    public double convert() {
-        ImmutablePair<VolumeUnits, VolumeUnits> conversionKey = new ImmutablePair<>(fromUnit, toUnit);
+    public double convert(VolumeUnits toUnit) {
+        ImmutablePair<VolumeUnits, VolumeUnits> conversionKey = new ImmutablePair<>(unit, toUnit);
         Double conversionFactor = conversionFactors.get(conversionKey);
         if (conversionFactor == null){
-            ImmutablePair<VolumeUnits, VolumeUnits> conversionToBaseKey = new ImmutablePair<>(fromUnit, VolumeUnits.LITER);
+            ImmutablePair<VolumeUnits, VolumeUnits> conversionToBaseKey = new ImmutablePair<>(unit, VolumeUnits.LITER);
             ImmutablePair<VolumeUnits, VolumeUnits> conversionFromBaseKey = new ImmutablePair<>(VolumeUnits.LITER, toUnit);
 
             Double conversionFactorToBase = conversionFactors.get(conversionToBaseKey);
             Double conversionFactorFromBase = conversionFactors.get(conversionFromBaseKey);
 
             if(conversionFactorToBase == null || conversionFactorFromBase == null)
-                throw new IllegalArgumentException("Conversion from " + fromUnit + " to " + toUnit + " is not supported.");
+                throw new IllegalArgumentException("Conversion from " + unit + " to " + toUnit + " is not supported.");
 
             return value * conversionFactorToBase * conversionFactorFromBase;
         }
