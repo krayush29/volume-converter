@@ -11,98 +11,107 @@ class VolumeConvertorTest {
 
     @Test
     public void test5LiterToMilliliter() {
-        VolumeConvertor volumeConvertor = new VolumeConvertor();
         double liters = 5.0;
+        VolumeConvertor volumeConvertor = new VolumeConvertor(VolumeUnits.LITER, VolumeUnits.MILLILITER, liters);
+
         double expectedOutput = 5000.0;
-        double actualOutput = volumeConvertor.convert(VolumeUnits.LITER, VolumeUnits.MILLILITER, liters);
+        double actualOutput = volumeConvertor.convert();
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
 
     @Test
     public void test7LiterToCentiliter() {
-        VolumeConvertor volumeConvertor = new VolumeConvertor();
         double liters = 7.0;
+        VolumeConvertor volumeConvertor = new VolumeConvertor(VolumeUnits.LITER, VolumeUnits.CENTILITER, liters);
+
         double expectedOutput = 700.0;
-        double actualOutput = volumeConvertor.convert(VolumeUnits.LITER, VolumeUnits.CENTILITER, liters);
+        double actualOutput = volumeConvertor.convert();
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
 
     @Test
     public void test23LiterToDeciliter() {
-        VolumeConvertor volumeConvertor = new VolumeConvertor();
         double liters = 23.0;
+        VolumeConvertor volumeConvertor = new VolumeConvertor(VolumeUnits.LITER, VolumeUnits.DECILITER, liters);
+
         double expectedOutput = 230.0;
-        double actualOutput = volumeConvertor.convert(VolumeUnits.LITER, VolumeUnits.DECILITER, liters);
+        double actualOutput = volumeConvertor.convert();
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
 
     @Test
     public void testLiterToDecaliter() {
-        VolumeConvertor volumeConvertor = new VolumeConvertor();
         double liters = 1.0;
+        VolumeConvertor volumeConvertor = new VolumeConvertor(VolumeUnits.LITER, VolumeUnits.DECALITER, liters);
+
         double expectedOutput = 0.1;
-        double actualOutput = volumeConvertor.convert(VolumeUnits.LITER, VolumeUnits.DECALITER, liters);
+        double actualOutput = volumeConvertor.convert();
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
 
     @Test
     public void testLiterToKiloliter() {
-        VolumeConvertor volumeConvertor = new VolumeConvertor();
         double liters = 1.0;
+        VolumeConvertor volumeConvertor = new VolumeConvertor(VolumeUnits.LITER, VolumeUnits.KILOLITER, liters);
         double expectedOutput = 0.001;
-        double actualOutput = volumeConvertor.convert(VolumeUnits.LITER, VolumeUnits.KILOLITER, liters);
+        double actualOutput = volumeConvertor.convert();
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
 
     @Test
     public void testMilliliterToLiter() {
-        VolumeConvertor volumeConvertor = new VolumeConvertor();
         double milliliters = 1000.0;
+        VolumeConvertor volumeConvertor = new VolumeConvertor(VolumeUnits.MILLILITER, VolumeUnits.LITER, milliliters);
+
         double expectedOutput = 1.0;
-        double actualOutput = volumeConvertor.convert(VolumeUnits.MILLILITER, VolumeUnits.LITER, milliliters);
+        double actualOutput = volumeConvertor.convert();
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
 
     @Test
     public void testMilliliterToDeciliter() {
-        VolumeConvertor volumeConvertor = new VolumeConvertor();
         double milliliters = 23.0;
+        VolumeConvertor volumeConvertor = new VolumeConvertor(VolumeUnits.MILLILITER, VolumeUnits.DECILITER, milliliters);
+
         double expectedOutput = 0.23;
-        double actualOutput = volumeConvertor.convert(VolumeUnits.MILLILITER, VolumeUnits.DECILITER, milliliters);
+        double actualOutput = volumeConvertor.convert();
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
 
     @Test
     public void testMilliliterToMilliliter() {
-        VolumeConvertor volumeConvertor = new VolumeConvertor();
         double milliliters = 23.0;
+        VolumeConvertor volumeConvertor = new VolumeConvertor(VolumeUnits.MILLILITER, VolumeUnits.MILLILITER, milliliters);
+
         double expectedOutput = 23.0;
-        double actualOutput = volumeConvertor.convert(VolumeUnits.MILLILITER, VolumeUnits.MILLILITER, milliliters);
+        double actualOutput = volumeConvertor.convert();
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
 
     @Test
     public void testDeciliterToMilliliter() {
-        VolumeConvertor volumeConvertor = new VolumeConvertor();
         double deciliter = 45.0;
+        VolumeConvertor volumeConvertor = new VolumeConvertor(VolumeUnits.DECILITER, VolumeUnits.MILLILITER, deciliter);
+
         double expectedOutput = 4500.0;
-        double actualOutput = volumeConvertor.convert(VolumeUnits.DECILITER, VolumeUnits.MILLILITER, deciliter);
+        double actualOutput = volumeConvertor.convert();
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
 
 //    @Test
 //    public void testExceptionForInvalidConversion() {
-//        VolumeConvertor volumeConvertor = new VolumeConvertor();
 //        double value = 1.0;
-//        assertThrows(IllegalArgumentException.class, () -> {volumeConvertor.convert("InvalidConversion", "InvalidConversion", value);});
+//        VolumeConvertor volumeConvertor = new VolumeConvertor("InvalidConversion", "InvalidConversion", value);
+//
+//        assertThrows(IllegalArgumentException.class, () -> {volumeConvertor.convert();});
 //    }
 }

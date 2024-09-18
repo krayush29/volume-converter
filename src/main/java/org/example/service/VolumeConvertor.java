@@ -8,7 +8,17 @@ import static org.example.repository.VolumeRepository.conversionFactors;
 
 public class VolumeConvertor {
 
-    public double convert(VolumeUnits fromUnit, VolumeUnits toUnit, double value) {
+    private final VolumeUnits fromUnit;
+    private final VolumeUnits toUnit;
+    private final double value;
+
+    public VolumeConvertor(VolumeUnits fromUnit, VolumeUnits toUnit, double value) {
+        this.fromUnit = fromUnit;
+        this.toUnit = toUnit;
+        this.value = value;
+    }
+
+    public double convert() {
         ImmutablePair<VolumeUnits, VolumeUnits> conversionKey = new ImmutablePair<>(fromUnit, toUnit);
         Double conversionFactor = conversionFactors.get(conversionKey);
         if (conversionFactor == null){
