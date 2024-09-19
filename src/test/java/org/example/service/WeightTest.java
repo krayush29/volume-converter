@@ -13,10 +13,11 @@ class WeightTest {
     public void test5GramToMilligram() {
         double grams = 5.0;
         Weight weight = new Weight(WeightUnits.GRAM, grams);
-        double expectedOutput = 5000.0;
-        double actualOutput = weight.convert(WeightUnits.MILLIGRAM);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        Weight actualOutput = weight.convert(WeightUnits.MILLIGRAM);
+        Weight expectedOutput = new Weight(WeightUnits.MILLIGRAM, 5000.0);
+
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -24,10 +25,10 @@ class WeightTest {
         double grams = 7.0;
         Weight weight = new Weight(WeightUnits.GRAM, grams);
 
-        double expectedOutput = 700.0;
-        double actualOutput = weight.convert(WeightUnits.CENTIGRAM);
+        Weight actualOutput = weight.convert(WeightUnits.CENTIGRAM);
+        Weight expectedOutput = new Weight(WeightUnits.CENTIGRAM, 700.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -35,10 +36,10 @@ class WeightTest {
         double grams = 23.0;
         Weight weight = new Weight(WeightUnits.GRAM, grams);
 
-        double expectedOutput = 230.0;
-        double actualOutput = weight.convert(WeightUnits.DECIGRAM);
+        Weight actualOutput = weight.convert(WeightUnits.DECIGRAM);
+        Weight expectedOutput = new Weight(WeightUnits.DECIGRAM, 230.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -46,20 +47,21 @@ class WeightTest {
         double grams = 1.0;
         Weight weight = new Weight(WeightUnits.GRAM, grams);
 
-        double expectedOutput = 0.1;
-        double actualOutput = weight.convert(WeightUnits.DECAGRAM);
+        Weight actualOutput = weight.convert(WeightUnits.DECAGRAM);
+        Weight expectedOutput = new Weight(WeightUnits.DECAGRAM, 0.1);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
     public void testGramToKilogram() {
         double grams = 1.0;
         Weight weight = new Weight(WeightUnits.GRAM, grams);
-        double expectedOutput = 0.001;
-        double actualOutput = weight.convert(WeightUnits.KILOGRAM);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        Weight actualOutput = weight.convert(WeightUnits.KILOGRAM);
+        Weight expectedOutput = new Weight(WeightUnits.KILOGRAM, 0.001);
+
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -67,10 +69,10 @@ class WeightTest {
         double milligrams = 1000.0;
         Weight weight = new Weight(WeightUnits.MILLIGRAM, milligrams);
 
-        double expectedOutput = 1.0;
-        double actualOutput = weight.convert(WeightUnits.GRAM);
+        Weight actualOutput = weight.convert(WeightUnits.GRAM);
+        Weight expectedOutput = new Weight(WeightUnits.GRAM, 1.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -78,10 +80,10 @@ class WeightTest {
         double milligrams = 23.0;
         Weight weight = new Weight(WeightUnits.MILLIGRAM, milligrams);
 
-        double expectedOutput = 0.23;
-        double actualOutput = weight.convert(WeightUnits.DECIGRAM);
+        Weight actualOutput = weight.convert(WeightUnits.DECIGRAM);
+        Weight expectedOutput = new Weight(WeightUnits.DECIGRAM, 0.23);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -89,10 +91,10 @@ class WeightTest {
         double milligrams = 23.0;
         Weight weight = new Weight(WeightUnits.MILLIGRAM, milligrams);
 
-        double expectedOutput = 23.0;
-        double actualOutput = weight.convert(WeightUnits.MILLIGRAM);
+        Weight actualOutput = weight.convert(WeightUnits.MILLIGRAM);
+        Weight expectedOutput = new Weight(WeightUnits.MILLIGRAM, 23.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -100,10 +102,10 @@ class WeightTest {
         double decigrams = 45.0;
         Weight weight = new Weight(WeightUnits.DECIGRAM, decigrams);
 
-        double expectedOutput = 4500.0;
-        double actualOutput = weight.convert(WeightUnits.MILLIGRAM);
+        Weight actualOutput = weight.convert(WeightUnits.MILLIGRAM);
+        Weight expectedOutput = new Weight(WeightUnits.MILLIGRAM, 4500.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     //Addition
@@ -114,10 +116,10 @@ class WeightTest {
         double valueInMilligram = 1.0;
         Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
 
-        double expectedOutput = 1.001;
-        double actualOutput = weight.add(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        Weight actualOutput = weight.add(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        Weight expectedOutput = new Weight(WeightUnits.GRAM, 1.001);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     // should be able to add 1 centigram adn 1 gram and get 101 centigram
@@ -127,10 +129,10 @@ class WeightTest {
         double valueInGram = 1.0;
         Weight weight = new Weight(WeightUnits.CENTIGRAM, valueInCentigram);
 
-        double expectedOutput = 101;
-        double actualOutput = weight.add(new Weight(WeightUnits.GRAM, valueInGram));
+        Weight actualOutput = weight.add(new Weight(WeightUnits.GRAM, valueInGram));
+        Weight expectedOutput = new Weight(WeightUnits.CENTIGRAM, 101);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -139,10 +141,10 @@ class WeightTest {
         double valueInMilligram = 3000.0;
         Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
 
-        double expectedOutput = 8.0;
-        double actualOutput = weight.add(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        Weight actualOutput = weight.add(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        Weight expectedOutput = new Weight(WeightUnits.GRAM, 8.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -151,10 +153,10 @@ class WeightTest {
         double valueInMilligram = 70.0;
         Weight weight = new Weight(WeightUnits.DECIGRAM, valueInDecigram);
 
-        double expectedOutput = 5.7;
-        double actualOutput = weight.add(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        Weight actualOutput = weight.add(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        Weight expectedOutput = new Weight(WeightUnits.DECIGRAM, 5.7);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     // Subtract
@@ -164,10 +166,10 @@ class WeightTest {
         double valueInMilligram = 3000.0;
         Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
 
-        double expectedOutput = 2.0;
-        double actualOutput = weight.subtract(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        Weight actualOutput = weight.subtract(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        Weight expectedOutput = new Weight(WeightUnits.GRAM, 2.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -176,10 +178,10 @@ class WeightTest {
         double valueInMilligram = 70.0;
         Weight weight = new Weight(WeightUnits.DECIGRAM, valueInDecigram);
 
-        double expectedOutput = 4.3;
-        double actualOutput = weight.subtract(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        Weight actualOutput = weight.subtract(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        Weight expectedOutput = new Weight(WeightUnits.DECIGRAM, 4.3);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     // Compare
@@ -189,8 +191,8 @@ class WeightTest {
         double valueInMilligram = 5000.0;
         Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
 
-        double expectedOutput = 0;
         Integer actualOutput = weight.compare(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        double expectedOutput = 0;
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
@@ -201,8 +203,8 @@ class WeightTest {
         double valueInMilligram = 6000.0;
         Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
 
-        double expectedOutput = -1;
         Integer actualOutput = weight.compare(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        double expectedOutput = -1;
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
@@ -213,8 +215,8 @@ class WeightTest {
         double valueInMilligram = 4000.0;
         Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
 
-        double expectedOutput = 1;
         Integer actualOutput = weight.compare(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+        double expectedOutput = 1;
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
@@ -225,8 +227,8 @@ class WeightTest {
         double valueInDecaGram = 1.0;
         Weight weight = new Weight(WeightUnits.CENTIGRAM, valueInCentigram);
 
-        double expectedOutput = 0;
         Integer actualOutput = weight.compare(new Weight(WeightUnits.DECAGRAM, valueInDecaGram));
+        double expectedOutput = 0;
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }

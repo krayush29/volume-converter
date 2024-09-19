@@ -14,10 +14,10 @@ class LengthTest {
         double meters = 5.0;
         Length length = new Length(LengthUnits.METER, meters);
 
-        double expectedOutput = 5000.0;
-        double actualOutput = length.convert(LengthUnits.MILLIMETER);
+        Length actualOutput = length.convert(LengthUnits.MILLIMETER);
+        Length expectedOutput = new Length(LengthUnits.MILLIMETER, 5000.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -25,10 +25,10 @@ class LengthTest {
         double meters = 7.0;
         Length length = new Length( LengthUnits.METER, meters);
 
-        double expectedOutput = 700.0;
-        double actualOutput = length.convert(LengthUnits.CENTIMETER);
+        Length actualOutput = length.convert(LengthUnits.CENTIMETER);
+        Length expectedOutput = new Length(LengthUnits.CENTIMETER, 700.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -36,10 +36,10 @@ class LengthTest {
         double meters = 23.0;
         Length length = new Length(LengthUnits.METER, meters);
 
-        double expectedOutput = 230.0;
-        double actualOutput = length.convert(LengthUnits.DECIMETER);
+        Length actualOutput = length.convert(LengthUnits.DECIMETER);
+        Length expectedOutput = new Length(LengthUnits.DECIMETER, 230.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -47,20 +47,21 @@ class LengthTest {
         double meters = 1.0;
         Length length = new Length( LengthUnits.METER, meters);
 
-        double expectedOutput = 0.1;
-        double actualOutput = length.convert(LengthUnits.DECAMETER);
+        Length actualOutput = length.convert(LengthUnits.DECAMETER);
+        Length expectedOutput = new Length(LengthUnits.DECAMETER, 0.1);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
     public void testMeterToKilometer() {
         double meters = 1.0;
         Length length = new Length( LengthUnits.METER, meters);
-        double expectedOutput = 0.001;
-        double actualOutput = length.convert(LengthUnits.KILOMETER);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        Length actualOutput = length.convert(LengthUnits.KILOMETER);
+        Length expectedOutput = new Length(LengthUnits.KILOMETER, 0.001);
+
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -68,10 +69,10 @@ class LengthTest {
         double millimeters = 1000.0;
         Length length = new Length(LengthUnits.MILLIMETER, millimeters);
 
-        double expectedOutput = 1.0;
-        double actualOutput = length.convert(LengthUnits.METER);
+        Length actualOutput = length.convert(LengthUnits.METER);
+        Length expectedOutput = new Length(LengthUnits.METER, 1.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -79,10 +80,10 @@ class LengthTest {
         double millimeters = 23.0;
         Length length = new Length(LengthUnits.MILLIMETER, millimeters);
 
-        double expectedOutput = 0.23;
-        double actualOutput = length.convert(LengthUnits.DECIMETER);
+        Length actualOutput = length.convert(LengthUnits.DECIMETER);
+        Length expectedOutput = new Length(LengthUnits.DECIMETER, 0.23);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -90,10 +91,10 @@ class LengthTest {
         double millimeters = 23.0;
         Length length = new Length(LengthUnits.MILLIMETER, millimeters);
 
-        double expectedOutput = 23.0;
-        double actualOutput = length.convert(LengthUnits.MILLIMETER);
+        Length actualOutput = length.convert(LengthUnits.MILLIMETER);
+        Length expectedOutput = new Length(LengthUnits.MILLIMETER, 23.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -101,10 +102,10 @@ class LengthTest {
         double decimeter = 45.0;
         Length length = new Length( LengthUnits.DECIMETER, decimeter);
 
-        double expectedOutput = 4500.0;
-        double actualOutput = length.convert(LengthUnits.MILLIMETER);
+        Length actualOutput = length.convert(LengthUnits.MILLIMETER);
+        Length expectedOutput = new Length(LengthUnits.MILLIMETER, 4500.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     //Addition
@@ -115,10 +116,10 @@ class LengthTest {
         double valueInMillimeter = 1.0;
         Length length = new Length(LengthUnits.METER, valueInMeter);
 
-        double expectedOutput = 1.001;
-        double actualOutput = length.add(new Length(LengthUnits.MILLIMETER, valueInMillimeter));
+        Length actualOutput = length.add(new Length(LengthUnits.MILLIMETER, valueInMillimeter));
+        Length expectedOutput = new Length(LengthUnits.METER, 1.001);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     // should be able to add 1 centimeter adn 1 meter and get 101 centimeter
@@ -128,10 +129,10 @@ class LengthTest {
         double valueInMeter = 1.0;
         Length length = new Length(LengthUnits.CENTIMETER, valueInCentimeter);
 
-        double expectedOutput = 101;
-        double actualOutput = length.add(new Length(LengthUnits.METER, valueInMeter));
+        Length actualOutput = length.add(new Length(LengthUnits.METER, valueInMeter));
+        Length expectedOutput = new Length(LengthUnits.CENTIMETER, 101);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -140,10 +141,10 @@ class LengthTest {
         double valueInMillimeter = 3000.0;
         Length length = new Length(LengthUnits.METER, valueInMeter);
 
-        double expectedOutput = 8.0;
-        double actualOutput = length.add(new Length(LengthUnits.MILLIMETER, valueInMillimeter));
+        Length actualOutput = length.add(new Length(LengthUnits.MILLIMETER, valueInMillimeter));
+        Length expectedOutput = new Length(LengthUnits.METER, 8.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -152,10 +153,10 @@ class LengthTest {
         double valueInMillimeter = 70.0;
         Length length = new Length(LengthUnits.DECIMETER, valueInDecimeter);
 
-        double expectedOutput = 5.7;
-        double actualOutput = length.add(new Length(LengthUnits.MILLIMETER, valueInMillimeter));
+        Length actualOutput = length.add(new Length(LengthUnits.MILLIMETER, valueInMillimeter));
+        Length expectedOutput = new Length(LengthUnits.DECIMETER, 5.7);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     // Subtract
@@ -165,10 +166,10 @@ class LengthTest {
         double valueInMillimeter = 3000.0;
         Length length = new Length(LengthUnits.METER, valueInMeter);
 
-        double expectedOutput = 2.0;
-        double actualOutput = length.subtract(new Length(LengthUnits.MILLIMETER, valueInMillimeter));
+        Length actualOutput = length.subtract(new Length(LengthUnits.MILLIMETER, valueInMillimeter));
+        Length expectedOutput = new Length(LengthUnits.METER, 2.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -177,10 +178,10 @@ class LengthTest {
         double valueInMillimeter = 70.0;
         Length length = new Length(LengthUnits.DECIMETER, valueInDecimeter);
 
-        double expectedOutput = 4.3;
-        double actualOutput = length.subtract(new Length(LengthUnits.MILLIMETER, valueInMillimeter));
+        Length actualOutput = length.subtract(new Length(LengthUnits.MILLIMETER, valueInMillimeter));
+        Length expectedOutput = new Length(LengthUnits.DECIMETER, 4.3);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     // Compare

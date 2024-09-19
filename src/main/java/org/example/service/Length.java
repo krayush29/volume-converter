@@ -1,26 +1,31 @@
 package org.example.service;
 
+import lombok.EqualsAndHashCode;
 import org.example.enums.LengthUnits;
 import org.example.enums.MetricUnit;
 
+@EqualsAndHashCode(callSuper = true)
 public class Length extends Metric{
     public Length(LengthUnits unit, double value) {
         super(unit, value);
     }
 
     @Override
-    public double convert(MetricUnit toUnit) {
-        return this.getValue() * getConversionFactor(this.getUnit(), toUnit, LengthUnits.METER);
+    public Length convert(MetricUnit toUnit) {
+        double value = this.getValue() * getConversionFactor(this.getUnit(), toUnit, LengthUnits.METER);
+        return new Length((LengthUnits) toUnit, value);
     }
 
     @Override
-    public double add(Metric addend) {
-        return this.getValue() + (addend.getValue() * getConversionFactor(addend.getUnit(), this.getUnit(), LengthUnits.METER));
+    public Length add(Metric addend) {
+        double value = this.getValue() + (addend.getValue() * getConversionFactor(addend.getUnit(), this.getUnit(), LengthUnits.METER));
+        return new Length((LengthUnits) this.getUnit(), value);
     }
 
     @Override
-    public double subtract(Metric subtrahend) {
-        return this.getValue() - (subtrahend.getValue() * getConversionFactor(subtrahend.getUnit(), this.getUnit(), LengthUnits.METER));
+    public Length subtract(Metric subtrahend) {
+        double value = this.getValue() - (subtrahend.getValue() * getConversionFactor(subtrahend.getUnit(), this.getUnit(), LengthUnits.METER));
+        return new Length((LengthUnits) this.getUnit(), value);
     }
 
     @Override

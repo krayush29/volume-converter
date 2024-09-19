@@ -14,10 +14,10 @@ class VolumeTest {
         double liters = 5.0;
         Volume volume = new Volume(VolumeUnits.LITER, liters);
 
-        double expectedOutput = 5000.0;
-        double actualOutput = volume.convert(VolumeUnits.MILLILITER);
+        Volume actualOutput = volume.convert(VolumeUnits.MILLILITER);
+        Volume expectedOutput = new Volume(VolumeUnits.MILLILITER, 5000.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -25,10 +25,10 @@ class VolumeTest {
         double liters = 7.0;
         Volume volume = new Volume(VolumeUnits.LITER, liters);
 
-        double expectedOutput = 700.0;
-        double actualOutput = volume.convert(VolumeUnits.CENTILITER);
+        Volume actualOutput = volume.convert(VolumeUnits.CENTILITER);
+        Volume expectedOutput = new Volume(VolumeUnits.CENTILITER, 700.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -36,10 +36,10 @@ class VolumeTest {
         double liters = 23.0;
         Volume volume = new Volume(VolumeUnits.LITER, liters);
 
-        double expectedOutput = 230.0;
-        double actualOutput = volume.convert(VolumeUnits.DECILITER);
+        Volume actualOutput = volume.convert(VolumeUnits.DECILITER);
+        Volume expectedOutput = new Volume(VolumeUnits.DECILITER, 230.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -47,20 +47,21 @@ class VolumeTest {
         double liters = 1.0;
         Volume volume = new Volume(VolumeUnits.LITER, liters);
 
-        double expectedOutput = 0.1;
-        double actualOutput = volume.convert(VolumeUnits.DECALITER);
+        Volume actualOutput = volume.convert(VolumeUnits.DECALITER);
+        Volume expectedOutput = new Volume(VolumeUnits.DECALITER,  0.1);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
     public void testLiterToKiloliter() {
         double liters = 1.0;
         Volume volume = new Volume(VolumeUnits.LITER, liters);
-        double expectedOutput = 0.001;
-        double actualOutput = volume.convert(VolumeUnits.KILOLITER);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        Volume actualOutput = volume.convert(VolumeUnits.KILOLITER);
+        Volume expectedOutput = new Volume(VolumeUnits.KILOLITER, 0.001);
+
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -68,10 +69,10 @@ class VolumeTest {
         double milliliters = 1000.0;
         Volume volume = new Volume(VolumeUnits.MILLILITER, milliliters);
 
-        double expectedOutput = 1.0;
-        double actualOutput = volume.convert(VolumeUnits.LITER);
+        Volume actualOutput = volume.convert(VolumeUnits.LITER);
+        Volume expectedOutput = new Volume(VolumeUnits.LITER, 1.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -79,10 +80,10 @@ class VolumeTest {
         double milliliters = 23.0;
         Volume volume = new Volume(VolumeUnits.MILLILITER, milliliters);
 
-        double expectedOutput = 0.23;
-        double actualOutput = volume.convert(VolumeUnits.DECILITER);
+        Volume actualOutput = volume.convert(VolumeUnits.DECILITER);
+        Volume expectedOutput = new Volume(VolumeUnits.DECILITER, 0.23);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -90,10 +91,10 @@ class VolumeTest {
         double milliliters = 23.0;
         Volume volume = new Volume(VolumeUnits.MILLILITER, milliliters);
 
-        double expectedOutput = 23.0;
-        double actualOutput = volume.convert(VolumeUnits.MILLILITER);
+        Volume actualOutput = volume.convert(VolumeUnits.MILLILITER);
+        Volume expectedOutput = new Volume(VolumeUnits.MILLILITER, 23.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -101,10 +102,10 @@ class VolumeTest {
         double deciliter = 45.0;
         Volume volume = new Volume(VolumeUnits.DECILITER, deciliter);
 
-        double expectedOutput = 4500.0;
-        double actualOutput = volume.convert(VolumeUnits.MILLILITER);
+        Volume expectedOutput = new Volume(VolumeUnits.MILLILITER,  4500.0);
+        Volume actualOutput = volume.convert(VolumeUnits.MILLILITER);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     //Addition
@@ -115,10 +116,10 @@ class VolumeTest {
         double valueInMilliliter = 1.0;
         Volume volume = new Volume(VolumeUnits.LITER, valueInLiter);
 
-        double expectedOutput = 1.001;
-    double actualOutput = volume.add(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        Volume actualOutput = volume.add(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        Volume expectedOutput = new Volume(VolumeUnits.LITER, 1.001);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     // should be able to add 1 centilitre adn 1 litre and get 101 centilitre
@@ -128,10 +129,10 @@ class VolumeTest {
         double valueInLiter = 1.0;
         Volume volume = new Volume(VolumeUnits.CENTILITER, valueInCentiliter);
 
-        double expectedOutput = 101;
-        double actualOutput = volume.add(new Volume(VolumeUnits.LITER, valueInLiter));
+        Volume actualOutput = volume.add(new Volume(VolumeUnits.LITER, valueInLiter));
+        Volume expectedOutput = new Volume(VolumeUnits.CENTILITER, 101);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -140,10 +141,10 @@ class VolumeTest {
         double valueInMilliliter = 3000.0;
         Volume volume = new Volume(VolumeUnits.LITER, valueInLiter);
 
-        double expectedOutput = 8.0;
-        double actualOutput = volume.add(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        Volume actualOutput = volume.add(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        Volume expectedOutput = new Volume(VolumeUnits.LITER, 8.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -152,10 +153,10 @@ class VolumeTest {
         double valueInMilliliter = 70.0;
         Volume volume = new Volume(VolumeUnits.DECILITER, valueInDeciliter);
 
-        double expectedOutput = 5.7;
-        double actualOutput = volume.add(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        Volume actualOutput = volume.add(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        Volume expectedOutput = new Volume(VolumeUnits.DECILITER, 5.7);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     // Subtract
@@ -165,10 +166,10 @@ class VolumeTest {
         double valueInMilliliter = 3000.0;
         Volume volume = new Volume(VolumeUnits.LITER, valueInLiter);
 
-        double expectedOutput = 2.0;
-        double actualOutput = volume.subtract(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        Volume actualOutput = volume.subtract(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        Volume expectedOutput = new Volume(VolumeUnits.LITER, 2.0);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -177,10 +178,10 @@ class VolumeTest {
         double valueInMilliliter = 70.0;
         Volume volume = new Volume(VolumeUnits.DECILITER, valueInDeciliter);
 
-        double expectedOutput = 4.3;
-        double actualOutput = volume.subtract(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        Volume actualOutput = volume.subtract(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        Volume expectedOutput = new Volume(VolumeUnits.DECILITER, 4.3);
 
-        assertEquals(expectedOutput, actualOutput, DELTA);
+        assertEquals(expectedOutput, actualOutput);
     }
 
     // Compare
@@ -190,8 +191,8 @@ class VolumeTest {
         double valueInMilliliter = 5000.0;
         Volume volume = new Volume(VolumeUnits.LITER, valueInLiter);
 
-        double expectedOutput = 0;
         Integer actualOutput = volume.compare(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        double expectedOutput = 0;
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
@@ -202,8 +203,8 @@ class VolumeTest {
         double valueInMilliliter = 6000.0;
         Volume volume = new Volume(VolumeUnits.LITER, valueInLiter);
 
-        double expectedOutput = -1;
         Integer actualOutput = volume.compare(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        double expectedOutput = -1;
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
@@ -214,8 +215,8 @@ class VolumeTest {
         double valueInMilliliter = 4000.0;
         Volume volume = new Volume(VolumeUnits.LITER, valueInLiter);
 
-        double expectedOutput = 1;
         Integer actualOutput = volume.compare(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+        double expectedOutput = 1;
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
@@ -226,8 +227,8 @@ class VolumeTest {
         double valueInDecaLiter = 1.0;
         Volume volume = new Volume(VolumeUnits.CENTILITER, valueInCentiliter);
 
-        double expectedOutput = 0;
         Integer actualOutput = volume.compare(new Volume(VolumeUnits.DECALITER, valueInDecaLiter));
+        double expectedOutput = 0;
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }

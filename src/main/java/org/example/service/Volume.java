@@ -1,9 +1,10 @@
 package org.example.service;
 
+import lombok.EqualsAndHashCode;
 import org.example.enums.MetricUnit;
 import org.example.enums.VolumeUnits;
 
-
+@EqualsAndHashCode(callSuper = true)
 public class Volume extends Metric{
 
     public Volume(VolumeUnits unit, double value) {
@@ -11,18 +12,21 @@ public class Volume extends Metric{
     }
 
     @Override
-    public double convert(MetricUnit toUnit) {
-        return this.getValue() * getConversionFactor(this.getUnit(), toUnit, VolumeUnits.LITER);
+    public Volume convert(MetricUnit toUnit) {
+        double value = this.getValue() * getConversionFactor(this.getUnit(), toUnit, VolumeUnits.LITER);
+        return new Volume((VolumeUnits) toUnit, value);
     }
 
     @Override
-    public double add(Metric addend){
-        return this.getValue() + (addend.getValue() * getConversionFactor(addend.getUnit(), this.getUnit(), VolumeUnits.LITER));
+    public Volume add(Metric addend){
+        double value = this.getValue() + (addend.getValue() * getConversionFactor(addend.getUnit(), this.getUnit(), VolumeUnits.LITER));
+        return new Volume((VolumeUnits) this.getUnit(), value);
     }
 
     @Override
-    public double subtract(Metric subtrahend){
-        return this.getValue() - (subtrahend.getValue() * getConversionFactor(subtrahend.getUnit(), this.getUnit(), VolumeUnits.LITER));
+    public Volume subtract(Metric subtrahend){
+        double value = this.getValue() - (subtrahend.getValue() * getConversionFactor(subtrahend.getUnit(), this.getUnit(), VolumeUnits.LITER));
+        return new Volume((VolumeUnits) this.getUnit(), value);
     }
 
     @Override

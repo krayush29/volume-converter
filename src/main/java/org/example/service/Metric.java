@@ -13,9 +13,9 @@ public abstract class Metric {
     private final MetricUnit unit;
     private final double value;
 
-    abstract public double convert(MetricUnit toUnit);
-    abstract public double add(Metric addend);
-    abstract public double subtract(Metric subtrahend);
+    abstract public Metric convert(MetricUnit toUnit);
+    abstract public Metric add(Metric addend);
+    abstract public Metric subtract(Metric subtrahend);
     abstract public Integer compare(Metric comparedMetric);
 
     double getConversionFactor(MetricUnit fromUnit, MetricUnit toUnit, MetricUnit baseUnit){
