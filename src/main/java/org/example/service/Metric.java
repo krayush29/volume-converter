@@ -1,8 +1,8 @@
 package org.example.service;
 
-import lombok.Data;
-import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.example.enums.MetricUnit;
+
+import java.util.Map;
 
 import static org.example.repository.MetricRepository.conversionFactors;
 
@@ -21,7 +21,7 @@ abstract class Metric {
     }
 
     private Double getConversionFactorValue(MetricUnit fromUnit, MetricUnit toUnit){
-        ImmutablePair<MetricUnit, MetricUnit> conversionKey = new ImmutablePair<>(fromUnit, toUnit);
-        return conversionFactors.get(conversionKey);
+        Map<MetricUnit, Double> baseMatricMap = conversionFactors.get(fromUnit);
+        return baseMatricMap.get(toUnit);
     }
 }
