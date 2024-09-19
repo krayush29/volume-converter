@@ -5,16 +5,17 @@ import org.example.enums.WeightUnits;
 
 public class Weight extends Metric{
 
-    private final WeightUnits unit;
-    private final double value;
-
-    public Weight(WeightUnits unit, double value) {
-        this.unit = unit;
-        this.value = value;
+    public Weight(MetricUnit unit, double value) {
+        super(unit, value);
     }
 
     @Override
     public double convert(MetricUnit toUnit) {
-        return value * getConversionFactor(unit, toUnit, WeightUnits.GRAM);
+        return this.getValue() * getConversionFactor(this.getUnit(), toUnit, WeightUnits.GRAM);
+    }
+
+    @Override
+    double add(Metric addendVolume) {
+        return 0;
     }
 }

@@ -1,14 +1,20 @@
 package org.example.service;
 
+import lombok.Data;
 import org.example.enums.MetricUnit;
 
 import java.util.Map;
 
 import static org.example.repository.MetricRepository.conversionFactors;
 
-abstract class Metric {
+@Data
+public abstract class Metric {
+
+    private final MetricUnit unit;
+    private final double value;
 
     abstract double convert(MetricUnit toUnit);
+    abstract double add(Metric addendVolume);
 
     double getConversionFactor(MetricUnit fromUnit, MetricUnit toUnit, MetricUnit baseUnit){
         Double conversionFactorToBase = getConversionFactorValue(baseUnit, fromUnit);

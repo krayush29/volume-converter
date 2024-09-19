@@ -4,16 +4,17 @@ import org.example.enums.LengthUnits;
 import org.example.enums.MetricUnit;
 
 public class Length extends Metric{
-    private final LengthUnits unit;
-    private final double value;
-
-    public Length(LengthUnits unit, double value) {
-        this.unit = unit;
-        this.value = value;
+    public Length(MetricUnit unit, double value) {
+        super(unit, value);
     }
 
     @Override
     public double convert(MetricUnit toUnit) {
-        return value * getConversionFactor(unit, toUnit, LengthUnits.METER);
+        return this.getValue() * getConversionFactor(this.getUnit(), toUnit, LengthUnits.METER);
+    }
+
+    @Override
+    double add(Metric addendVolume) {
+        return 0;
     }
 }
