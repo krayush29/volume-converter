@@ -107,6 +107,7 @@ class VolumeTest {
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
 
+    //Addition
     // should be able to add 1 litre and 1 mililitre and get 1.001 litre
     @Test
     public void testAdd1LiterTo1Milliliter() {
@@ -141,6 +142,92 @@ class VolumeTest {
 
         double expectedOutput = 8.0;
         double actualOutput = volume.add(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testAdd5DeciliterTo70Milliliter() {
+        double valueInDeciliter = 5.0;
+        double valueInMilliliter = 70.0;
+        Volume volume = new Volume(VolumeUnits.DECILITER, valueInDeciliter);
+
+        double expectedOutput = 5.7;
+        double actualOutput = volume.add(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    // Subtract
+    @Test
+    public void testSubtract5LiterTo3000Milliliter() {
+        double valueInLiter = 5.0;
+        double valueInMilliliter = 3000.0;
+        Volume volume = new Volume(VolumeUnits.LITER, valueInLiter);
+
+        double expectedOutput = 2.0;
+        double actualOutput = volume.subtract(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testSubtract5DeciliterTo70Milliliter() {
+        double valueInDeciliter = 5.0;
+        double valueInMilliliter = 70.0;
+        Volume volume = new Volume(VolumeUnits.DECILITER, valueInDeciliter);
+
+        double expectedOutput = 4.3;
+        double actualOutput = volume.subtract(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    // Compare
+    @Test
+    public void testCompare5LiterTo5000Milliliter() {
+        double valueInLiter = 5.0;
+        double valueInMilliliter = 5000.0;
+        Volume volume = new Volume(VolumeUnits.LITER, valueInLiter);
+
+        double expectedOutput = 0;
+        Integer actualOutput = volume.compare(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testCompare5LiterTo6000Milliliter() {
+        double valueInLiter = 5.0;
+        double valueInMilliliter = 6000.0;
+        Volume volume = new Volume(VolumeUnits.LITER, valueInLiter);
+
+        double expectedOutput = -1;
+        Integer actualOutput = volume.compare(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testCompare5LiterTo4000Milliliter() {
+        double valueInLiter = 5.0;
+        double valueInMilliliter = 4000.0;
+        Volume volume = new Volume(VolumeUnits.LITER, valueInLiter);
+
+        double expectedOutput = 1;
+        Integer actualOutput = volume.compare(new Volume(VolumeUnits.MILLILITER, valueInMilliliter));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testCompare1000CentiliterTo1DecaLiter() {
+        double valueInCentiliter = 1000.0;
+        double valueInDecaLiter = 1.0;
+        Volume volume = new Volume(VolumeUnits.CENTILITER, valueInCentiliter);
+
+        double expectedOutput = 0;
+        Integer actualOutput = volume.compare(new Volume(VolumeUnits.DECALITER, valueInDecaLiter));
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }

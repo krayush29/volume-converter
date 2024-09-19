@@ -13,8 +13,10 @@ public abstract class Metric {
     private final MetricUnit unit;
     private final double value;
 
-    abstract double convert(MetricUnit toUnit);
-    abstract double add(Metric addendVolume);
+    abstract public double convert(MetricUnit toUnit);
+    abstract public double add(Metric addend);
+    abstract public double subtract(Metric subtrahend);
+    abstract public Integer compare(Metric comparedMetric);
 
     double getConversionFactor(MetricUnit fromUnit, MetricUnit toUnit, MetricUnit baseUnit){
         Double conversionFactorToBase = getConversionFactorValue(baseUnit, fromUnit);

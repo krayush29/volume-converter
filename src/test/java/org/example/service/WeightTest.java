@@ -105,4 +105,129 @@ class WeightTest {
 
         assertEquals(expectedOutput, actualOutput, DELTA);
     }
+
+    //Addition
+    // should be able to add 1 gram and 1 milligram and get 1.001 gram
+    @Test
+    public void testAdd1GramTo1Milligram() {
+        double valueInGram = 1.0;
+        double valueInMilligram = 1.0;
+        Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
+
+        double expectedOutput = 1.001;
+        double actualOutput = weight.add(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    // should be able to add 1 centigram adn 1 gram and get 101 centigram
+    @Test
+    public void testAdd1CentigramTo1Gram() {
+        double valueInCentigram = 1.0;
+        double valueInGram = 1.0;
+        Weight weight = new Weight(WeightUnits.CENTIGRAM, valueInCentigram);
+
+        double expectedOutput = 101;
+        double actualOutput = weight.add(new Weight(WeightUnits.GRAM, valueInGram));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testAdd5GramTo3000Milligram() {
+        double valueInGram = 5.0;
+        double valueInMilligram = 3000.0;
+        Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
+
+        double expectedOutput = 8.0;
+        double actualOutput = weight.add(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testAdd5DecigramTo70Milligram() {
+        double valueInDecigram = 5.0;
+        double valueInMilligram = 70.0;
+        Weight weight = new Weight(WeightUnits.DECIGRAM, valueInDecigram);
+
+        double expectedOutput = 5.7;
+        double actualOutput = weight.add(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    // Subtract
+    @Test
+    public void testSubtract5GramTo3000Milligram() {
+        double valueInGram = 5.0;
+        double valueInMilligram = 3000.0;
+        Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
+
+        double expectedOutput = 2.0;
+        double actualOutput = weight.subtract(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testSubtract5DecigramTo70Milligram() {
+        double valueInDecigram = 5.0;
+        double valueInMilligram = 70.0;
+        Weight weight = new Weight(WeightUnits.DECIGRAM, valueInDecigram);
+
+        double expectedOutput = 4.3;
+        double actualOutput = weight.subtract(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    // Compare
+    @Test
+    public void testCompare5GramTo5000Milligram() {
+        double valueInGram = 5.0;
+        double valueInMilligram = 5000.0;
+        Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
+
+        double expectedOutput = 0;
+        Integer actualOutput = weight.compare(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testCompare5GramTo6000Milligram() {
+        double valueInGram = 5.0;
+        double valueInMilligram = 6000.0;
+        Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
+
+        double expectedOutput = -1;
+        Integer actualOutput = weight.compare(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testCompare5GramTo4000Milligram() {
+        double valueInGram = 5.0;
+        double valueInMilligram = 4000.0;
+        Weight weight = new Weight(WeightUnits.GRAM, valueInGram);
+
+        double expectedOutput = 1;
+        Integer actualOutput = weight.compare(new Weight(WeightUnits.MILLIGRAM, valueInMilligram));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
+
+    @Test
+    public void testCompare1000CentigramTo1DecaGram() {
+        double valueInCentigram = 1000.0;
+        double valueInDecaGram = 1.0;
+        Weight weight = new Weight(WeightUnits.CENTIGRAM, valueInCentigram);
+
+        double expectedOutput = 0;
+        Integer actualOutput = weight.compare(new Weight(WeightUnits.DECAGRAM, valueInDecaGram));
+
+        assertEquals(expectedOutput, actualOutput, DELTA);
+    }
 }

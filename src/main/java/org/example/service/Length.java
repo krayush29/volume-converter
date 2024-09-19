@@ -14,7 +14,19 @@ public class Length extends Metric{
     }
 
     @Override
-    double add(Metric addendVolume) {
-        return 0;
+    public double add(Metric addend) {
+        return this.getValue() + (addend.getValue() * getConversionFactor(addend.getUnit(), this.getUnit(), LengthUnits.METER));
+    }
+
+    @Override
+    public double subtract(Metric subtrahend) {
+        return this.getValue() - (subtrahend.getValue() * getConversionFactor(subtrahend.getUnit(), this.getUnit(), LengthUnits.METER));
+    }
+
+    @Override
+    public Integer compare(Metric comparedLength) {
+        Double value1 = this.getValue();
+        Double value2 = comparedLength.getValue() * getConversionFactor(comparedLength.getUnit(), this.getUnit(), LengthUnits.METER);
+        return value1.compareTo(value2);
     }
 }
