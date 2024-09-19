@@ -4,7 +4,7 @@ import org.example.enums.LengthUnits;
 import org.example.enums.MetricUnit;
 
 public class Length extends Metric{
-    public Length(MetricUnit unit, double value) {
+    public Length(LengthUnits unit, double value) {
         super(unit, value);
     }
 

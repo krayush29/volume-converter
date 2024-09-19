@@ -5,7 +5,7 @@ import org.example.enums.WeightUnits;
 
 public class Weight extends Metric{
 
-    public Weight(MetricUnit unit, double value) {
+    public Weight(WeightUnits unit, double value) {
         super(unit, value);
     }
 

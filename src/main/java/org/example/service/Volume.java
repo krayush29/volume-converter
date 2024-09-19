@@ -6,7 +6,7 @@ import org.example.enums.VolumeUnits;
 
 public class Volume extends Metric{
 
-    public Volume(MetricUnit unit, double value) {
+    public Volume(VolumeUnits unit, double value) {
         super(unit, value);
     }
 
