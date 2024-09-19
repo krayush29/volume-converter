@@ -1,12 +1,15 @@
 package org.example.service;
 
+import lombok.Data;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.example.enums.MetricUnit;
 
 import static org.example.repository.MetricRepository.conversionFactors;
 
 abstract class Metric {
+
     abstract double convert(MetricUnit toUnit);
+
     double getConversionFactor(MetricUnit fromUnit, MetricUnit toUnit, MetricUnit baseUnit){
         Double conversionFactorToBase = getConversionFactorValue(baseUnit, fromUnit);
         Double conversionFactorToUnit = getConversionFactorValue(baseUnit, toUnit);
