@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.enums.LengthUnits;
+import org.example.service.implementation.Length;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,7 +24,7 @@ class LengthTest {
     @Test
     public void test7MeterToCentimeter() {
         double meters = 7.0;
-        Length length = new Length( LengthUnits.METER, meters);
+        Length length = new Length(LengthUnits.METER, meters);
 
         Length actualOutput = length.convert(LengthUnits.CENTIMETER);
         Length expectedOutput = new Length(LengthUnits.CENTIMETER, 700.0);
@@ -45,7 +46,7 @@ class LengthTest {
     @Test
     public void testMeterToDecameter() {
         double meters = 1.0;
-        Length length = new Length( LengthUnits.METER, meters);
+        Length length = new Length(LengthUnits.METER, meters);
 
         Length actualOutput = length.convert(LengthUnits.DECAMETER);
         Length expectedOutput = new Length(LengthUnits.DECAMETER, 0.1);
@@ -56,7 +57,7 @@ class LengthTest {
     @Test
     public void testMeterToKilometer() {
         double meters = 1.0;
-        Length length = new Length( LengthUnits.METER, meters);
+        Length length = new Length(LengthUnits.METER, meters);
 
         Length actualOutput = length.convert(LengthUnits.KILOMETER);
         Length expectedOutput = new Length(LengthUnits.KILOMETER, 0.001);
@@ -100,7 +101,7 @@ class LengthTest {
     @Test
     public void testDecimeterToMilliMeter() {
         double decimeter = 45.0;
-        Length length = new Length( LengthUnits.DECIMETER, decimeter);
+        Length length = new Length(LengthUnits.DECIMETER, decimeter);
 
         Length actualOutput = length.convert(LengthUnits.MILLIMETER);
         Length expectedOutput = new Length(LengthUnits.MILLIMETER, 4500.0);

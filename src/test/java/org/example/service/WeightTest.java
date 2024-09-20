@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.enums.WeightUnits;
+import org.example.service.implementation.Weight;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

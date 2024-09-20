@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.enums.VolumeUnits;
+import org.example.service.implementation.Volume;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -48,7 +49,7 @@ class VolumeTest {
         Volume volume = new Volume(VolumeUnits.LITER, liters);
 
         Volume actualOutput = volume.convert(VolumeUnits.DECALITER);
-        Volume expectedOutput = new Volume(VolumeUnits.DECALITER,  0.1);
+        Volume expectedOutput = new Volume(VolumeUnits.DECALITER, 0.1);
 
         assertEquals(expectedOutput, actualOutput);
     }
@@ -102,7 +103,7 @@ class VolumeTest {
         double deciliter = 45.0;
         Volume volume = new Volume(VolumeUnits.DECILITER, deciliter);
 
-        Volume expectedOutput = new Volume(VolumeUnits.MILLILITER,  4500.0);
+        Volume expectedOutput = new Volume(VolumeUnits.MILLILITER, 4500.0);
         Volume actualOutput = volume.convert(VolumeUnits.MILLILITER);
 
         assertEquals(expectedOutput, actualOutput);
