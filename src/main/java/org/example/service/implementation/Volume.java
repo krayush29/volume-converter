@@ -13,6 +13,10 @@ public class Volume implements Metric<Volume>, Addable<Volume> {
 
     @Override
     public Volume convert(MetricUnit toUnit) {
+        if (!(toUnit instanceof VolumeUnits)) {
+            throw new IllegalArgumentException("Cannot convert " + toUnit.getClass() + " to " + unit.getClass());
+        }
+
         double value = this.getValue() * getConversionFactor(this.getUnit(), (VolumeUnits) toUnit);
         return new Volume((VolumeUnits) toUnit, value);
     }
@@ -36,7 +40,7 @@ public class Volume implements Metric<Volume>, Addable<Volume> {
         return value1.compareTo(value2);
     }
 
-    double getConversionFactor(VolumeUnits fromUnit, VolumeUnits toUnit) {
+    private double getConversionFactor(VolumeUnits fromUnit, VolumeUnits toUnit) {
         double conversionFactorToBase = VolumeUnits.valueOf(fromUnit.toString()).getValue();
         double conversionFactorToUnit = VolumeUnits.valueOf(toUnit.toString()).getValue();
 

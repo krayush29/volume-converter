@@ -3,6 +3,7 @@ package org.example.service.implementation;
 import lombok.Data;
 import org.example.enums.LengthUnits;
 import org.example.enums.MetricUnit;
+import org.example.enums.VolumeUnits;
 import org.example.service.Addable;
 import org.example.service.Metric;
 
@@ -14,6 +15,10 @@ public class Length implements Metric<Length>, Addable<Length> {
 
     @Override
     public Length convert(MetricUnit toUnit) {
+        if (!(toUnit instanceof LengthUnits)) {
+            throw new IllegalArgumentException("Cannot convert " + toUnit.getClass() + " to " + unit.getClass());
+        }
+
         double value = this.getValue() * getConversionFactor(this.getUnit(), (LengthUnits) toUnit);
         return new Length((LengthUnits) toUnit, value);
     }
@@ -37,7 +42,7 @@ public class Length implements Metric<Length>, Addable<Length> {
         return value1.compareTo(value2);
     }
 
-    double getConversionFactor(LengthUnits fromUnit, LengthUnits toUnit) {
+    private double getConversionFactor(LengthUnits fromUnit, LengthUnits toUnit) {
         double conversionFactorToBase = LengthUnits.valueOf(fromUnit.toString()).getValue();
         double conversionFactorToUnit = LengthUnits.valueOf(toUnit.toString()).getValue();
 

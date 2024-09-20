@@ -14,6 +14,10 @@ public class Weight implements Metric<Weight>, Addable<Weight> {
 
     @Override
     public Weight convert(MetricUnit toUnit) {
+        if (!(toUnit instanceof WeightUnits)) {
+            throw new IllegalArgumentException("Cannot convert " + toUnit.getClass() + " to " + unit.getClass());
+        }
+
         double value = this.getValue() * getConversionFactor(this.getUnit(), (WeightUnits) toUnit);
         return new Weight((WeightUnits) toUnit, value);
     }
@@ -37,7 +41,7 @@ public class Weight implements Metric<Weight>, Addable<Weight> {
         return value1.compareTo(value2);
     }
 
-    double getConversionFactor(WeightUnits fromUnit, WeightUnits toUnit) {
+    private double getConversionFactor(WeightUnits fromUnit, WeightUnits toUnit) {
         double conversionFactorToBase = WeightUnits.valueOf(fromUnit.toString()).getValue();
         double conversionFactorToUnit = WeightUnits.valueOf(toUnit.toString()).getValue();
 
