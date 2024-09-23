@@ -6,7 +6,7 @@ import org.example.service.Addable;
 import org.example.service.Metric;
 
 @Data
-public class Length implements Metric<Length, LengthUnits>, Addable<Length, LengthUnits> {
+public class Length implements Metric<Length, LengthUnits>, Addable<Length> {
 
     private final LengthUnits unit;
     private final double value;

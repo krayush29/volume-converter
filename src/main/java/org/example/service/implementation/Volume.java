@@ -7,7 +7,7 @@ import org.example.service.Addable;
 import org.example.service.Metric;
 
 @Data
-public class Volume implements Metric<Volume, VolumeUnits>, Addable<Volume, VolumeUnits> {
+public class Volume implements Metric<Volume, VolumeUnits>, Addable<Volume> {
     private final VolumeUnits unit;
     private final double value;
 

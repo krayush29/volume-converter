@@ -8,7 +8,7 @@ import org.example.service.Metric;
 
 @Data
 @EqualsAndHashCode
-public class Weight implements Metric<Weight, WeightUnits>, Addable<Weight, WeightUnits> {
+public class Weight implements Metric<Weight, WeightUnits>, Addable<Weight> {
 
     private final WeightUnits unit;
     private final double value;
