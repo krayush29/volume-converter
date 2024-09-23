@@ -1,12 +1,10 @@
 package org.example.service;
 
 import org.example.enums.LengthUnits;
-import org.example.enums.VolumeUnits;
 import org.example.service.implementation.Length;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class LengthTest {
 
@@ -109,14 +107,6 @@ class LengthTest {
         Length expectedOutput = new Length(LengthUnits.MILLIMETER, 4500.0);
 
         assertEquals(expectedOutput, actualOutput);
-    }
-
-    @Test
-    public void testExceptionDecimeterToMilliliter() {
-        double decimeter = 45.0;
-        Length length = new Length(LengthUnits.DECIMETER, decimeter);
-
-        assertThrows(IllegalArgumentException.class, ()->{length.convert(VolumeUnits.MILLILITER);});
     }
 
     //Addition

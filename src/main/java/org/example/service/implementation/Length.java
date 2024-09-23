@@ -2,24 +2,19 @@ package org.example.service.implementation;
 
 import lombok.Data;
 import org.example.enums.LengthUnits;
-import org.example.enums.MetricUnit;
 import org.example.service.Addable;
 import org.example.service.Metric;
 
 @Data
-public class Length implements Metric<Length>, Addable<Length> {
+public class Length implements Metric<Length, LengthUnits>, Addable<Length, LengthUnits> {
 
     private final LengthUnits unit;
     private final double value;
 
     @Override
-    public Length convert(MetricUnit toUnit) {
-        if (!(toUnit instanceof LengthUnits)) {
-            throw new IllegalArgumentException("Cannot convert " + toUnit.getClass() + " to " + unit.getClass());
-        }
-
-        double value = this.getValue() * getConversionFactor(this.getUnit(), (LengthUnits) toUnit);
-        return new Length((LengthUnits) toUnit, value);
+    public Length convert(LengthUnits toUnit) {
+        double value = this.getValue() * getConversionFactor(this.getUnit(), toUnit);
+        return new Length( toUnit, value);
     }
 
     @Override

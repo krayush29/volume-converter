@@ -1,25 +1,22 @@
 package org.example.service.implementation;
 
 import lombok.Data;
-import org.example.enums.MetricUnit;
+import lombok.EqualsAndHashCode;
 import org.example.enums.WeightUnits;
 import org.example.service.Addable;
 import org.example.service.Metric;
 
 @Data
-public class Weight implements Metric<Weight>, Addable<Weight> {
+@EqualsAndHashCode
+public class Weight implements Metric<Weight, WeightUnits>, Addable<Weight, WeightUnits> {
 
     private final WeightUnits unit;
     private final double value;
 
     @Override
-    public Weight convert(MetricUnit toUnit) {
-        if (!(toUnit instanceof WeightUnits)) {
-            throw new IllegalArgumentException("Cannot convert " + toUnit.getClass() + " to " + unit.getClass());
-        }
-
-        double value = this.getValue() * getConversionFactor(this.getUnit(), (WeightUnits) toUnit);
-        return new Weight((WeightUnits) toUnit, value);
+    public Weight convert(WeightUnits toUnit) {
+        double value = this.getValue() * getConversionFactor(this.getUnit(), toUnit);
+        return new Weight(toUnit, value);
     }
 
     @Override

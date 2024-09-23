@@ -1,24 +1,20 @@
 package org.example.service.implementation;
 
 import lombok.Data;
-import org.example.enums.MetricUnit;
+import lombok.EqualsAndHashCode;
 import org.example.enums.VolumeUnits;
 import org.example.service.Addable;
 import org.example.service.Metric;
 
 @Data
-public class Volume implements Metric<Volume>, Addable<Volume> {
+public class Volume implements Metric<Volume, VolumeUnits>, Addable<Volume, VolumeUnits> {
     private final VolumeUnits unit;
     private final double value;
 
     @Override
-    public Volume convert(MetricUnit toUnit) {
-        if (!(toUnit instanceof VolumeUnits)) {
-            throw new IllegalArgumentException("Cannot convert " + toUnit.getClass() + " to " + unit.getClass());
-        }
-
-        double value = this.getValue() * getConversionFactor(this.getUnit(), (VolumeUnits) toUnit);
-        return new Volume((VolumeUnits) toUnit, value);
+    public Volume convert(VolumeUnits toUnit) {
+        double value = this.getValue() * getConversionFactor(this.getUnit(), toUnit);
+        return new Volume(toUnit, value);
     }
 
     @Override

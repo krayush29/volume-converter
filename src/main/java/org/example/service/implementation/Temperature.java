@@ -1,23 +1,19 @@
 package org.example.service.implementation;
 
 import lombok.Data;
-import org.example.enums.LengthUnits;
-import org.example.enums.MetricUnit;
+import lombok.EqualsAndHashCode;
 import org.example.enums.TemperatureUnits;
 import org.example.service.Metric;
 
 @Data
-public class Temperature implements Metric<Temperature> {
+public class Temperature implements Metric<Temperature, TemperatureUnits> {
     private final TemperatureUnits unit;
     private final double value;
 
     @Override
-    public Temperature convert(MetricUnit toUnit) {
-        if (!(toUnit instanceof TemperatureUnits)) {
-            throw new IllegalArgumentException("Cannot convert " + toUnit.getClass() + " to " + unit.getClass());
-        }
-        double value = calculateValue(this.getValue(), this.getUnit(), (TemperatureUnits) toUnit);
-        return new Temperature((TemperatureUnits) toUnit, value);
+    public Temperature convert(TemperatureUnits toUnit) {
+        double value = calculateValue(this.getValue(), this.getUnit(), toUnit);
+        return new Temperature(toUnit, value);
     }
 
     @Override

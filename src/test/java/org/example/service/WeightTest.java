@@ -1,12 +1,10 @@
 package org.example.service;
 
-import org.example.enums.LengthUnits;
 import org.example.enums.WeightUnits;
 import org.example.service.implementation.Weight;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class WeightTest {
 
@@ -109,14 +107,6 @@ class WeightTest {
         Weight expectedOutput = new Weight(WeightUnits.MILLIGRAM, 4500.0);
 
         assertEquals(expectedOutput, actualOutput);
-    }
-
-    @Test
-    public void testExceptionDeciGramToKiloMeter() {
-        double decigrams = 45.0;
-        Weight weight = new Weight(WeightUnits.DECIGRAM, decigrams);
-
-        assertThrows(IllegalArgumentException.class, ()-> {weight.convert(LengthUnits.KILOMETER);});
     }
 
     // Addition

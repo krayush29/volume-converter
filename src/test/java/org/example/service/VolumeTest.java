@@ -1,12 +1,10 @@
 package org.example.service;
 
 import org.example.enums.VolumeUnits;
-import org.example.enums.WeightUnits;
 import org.example.service.implementation.Volume;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class VolumeTest {
 
@@ -109,14 +107,6 @@ class VolumeTest {
         Volume actualOutput = volume.convert(VolumeUnits.MILLILITER);
 
         assertEquals(expectedOutput, actualOutput);
-    }
-
-    @Test
-    public void testExceptionDeciliterToMilliGram() {
-        double deciliter = 45.0;
-        Volume volume = new Volume(VolumeUnits.DECILITER, deciliter);
-
-        assertThrows(IllegalArgumentException.class, ()-> {volume.convert(WeightUnits.MILLIGRAM);});
     }
 
     //Addition
