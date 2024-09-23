@@ -1,7 +1,9 @@
 package org.example.service;
 
-public interface Addable<T extends Metric<T>> {
-    T add(T addend);
+import lombok.NonNull;
 
-    T subtract(T subtrahend);
+public interface Addable<T extends Metric<T>> {
+    T add(@NonNull T addend);
+
+    T subtract(@NonNull T subtrahend);
 }

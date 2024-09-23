@@ -36,6 +36,7 @@ public class Weight implements Metric<Weight>, Addable<Weight> {
 
     @Override
     public Integer compare(Weight comparedWeight) {
+        // TODO: Override equals and hashcode
         Double value1 = this.getValue();
         Double value2 = comparedWeight.getValue() * getConversionFactor(comparedWeight.getUnit(), this.getUnit());
         return value1.compareTo(value2);

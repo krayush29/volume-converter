@@ -31,4 +31,39 @@ class TemperatureTest {
 
         assertEquals(expectedOutput, actualOutput);
     }
+
+
+    // Compare Method
+    @Test
+    public void testCompare100FahrenheitTo32Celsius() {
+        double fahrenheit = 100;
+        Temperature temperature = new Temperature(TemperatureUnits.FAHRENHEIT, fahrenheit);
+
+        Integer actualOutput = temperature.compare( new Temperature(TemperatureUnits.CELSIUS, 32.0));
+        Integer expectedOutput = 1;
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testCompare100FahrenheitTo100Fahrenheit() {
+        double fahrenheit = 100;
+        Temperature temperature = new Temperature(TemperatureUnits.FAHRENHEIT, fahrenheit);
+
+        Integer actualOutput = temperature.compare( new Temperature(TemperatureUnits.FAHRENHEIT, 100.0));
+        int expectedOutput = 0;
+
+        assertEquals(expectedOutput, actualOutput, 0.001);
+    }
+
+    @Test
+    public void testCompare89FahrenheitTo32Celsius() {
+        double fahrenheit = 89.6;
+        Temperature temperature = new Temperature(TemperatureUnits.FAHRENHEIT, fahrenheit);
+
+        Integer actualOutput = temperature.compare( new Temperature(TemperatureUnits.CELSIUS, 32.0));
+        int expectedOutput = 0;
+
+        assertEquals(expectedOutput, actualOutput, 0.001);
+    }
 }

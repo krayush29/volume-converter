@@ -35,6 +35,7 @@ public class Volume implements Metric<Volume>, Addable<Volume> {
 
     @Override
     public Integer compare(Volume comparedVolume) {
+        // TODO: Override equals and hashcode
         Double value1 = this.getValue();
         Double value2 = comparedVolume.getValue() * getConversionFactor(comparedVolume.getUnit(), this.getUnit());
         return value1.compareTo(value2);

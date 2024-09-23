@@ -1,6 +1,7 @@
 package org.example.service.implementation;
 
 import lombok.Data;
+import org.example.enums.LengthUnits;
 import org.example.enums.MetricUnit;
 import org.example.enums.TemperatureUnits;
 import org.example.service.Metric;
@@ -12,19 +13,19 @@ public class Temperature implements Metric<Temperature> {
 
     @Override
     public Temperature convert(MetricUnit toUnit) {
-
-        if (this.getUnit() == toUnit) {
-            return new Temperature((TemperatureUnits) toUnit, this.getValue());
+        if (!(toUnit instanceof TemperatureUnits)) {
+            throw new IllegalArgumentException("Cannot convert " + toUnit.getClass() + " to " + unit.getClass());
         }
-        if (this.getUnit() == TemperatureUnits.CELSIUS && toUnit == TemperatureUnits.FAHRENHEIT) {
-            return new Temperature((TemperatureUnits) toUnit, celsiusToFahrenheit(this.getValue()));
-        }
-        return new Temperature((TemperatureUnits) toUnit, fahrenheitToCelsius(this.getValue()));
+        double value = calculateValue(this.getValue(), this.getUnit(), (TemperatureUnits) toUnit);
+        return new Temperature((TemperatureUnits) toUnit, value);
     }
 
     @Override
     public Integer compare(Temperature comparedMetric) {
-        return null;
+        // TODO: Override equals and hashcode
+        Double value1 = this.getValue();
+        Double value2 = calculateValue(comparedMetric.getValue(), comparedMetric.getUnit(), this.getUnit());
+        return value1.compareTo(value2);
     }
 
     private double celsiusToFahrenheit(double celsius) {
@@ -33,5 +34,15 @@ public class Temperature implements Metric<Temperature> {
 
     private double fahrenheitToCelsius(double fahrenheit) {
         return (fahrenheit - 32) * 5 / 9;
+    }
+
+    private double calculateValue(double value, TemperatureUnits fromUnit, TemperatureUnits toUnit) {
+        if (fromUnit == toUnit) {
+            return value;
+        }
+        if (fromUnit == TemperatureUnits.CELSIUS && toUnit == TemperatureUnits.FAHRENHEIT) {
+            return celsiusToFahrenheit(value);
+        }
+        return fahrenheitToCelsius(value);
     }
 }

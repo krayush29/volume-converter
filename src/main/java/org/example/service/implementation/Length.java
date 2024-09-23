@@ -3,7 +3,6 @@ package org.example.service.implementation;
 import lombok.Data;
 import org.example.enums.LengthUnits;
 import org.example.enums.MetricUnit;
-import org.example.enums.VolumeUnits;
 import org.example.service.Addable;
 import org.example.service.Metric;
 
@@ -37,6 +36,7 @@ public class Length implements Metric<Length>, Addable<Length> {
 
     @Override
     public Integer compare(Length comparedLength) {
+        // TODO: Override equals and hashcode
         Double value1 = this.getValue();
         Double value2 = comparedLength.getValue() * getConversionFactor(comparedLength.getUnit(), this.getUnit());
         return value1.compareTo(value2);
