@@ -1,7 +1,6 @@
 package org.example.service.implementation;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import org.example.enums.TemperatureUnits;
 import org.example.service.Metric;
 
@@ -12,8 +11,10 @@ public class Temperature implements Metric<Temperature, TemperatureUnits> {
 
     @Override
     public Temperature convert(TemperatureUnits toUnit) {
-        double value = calculateValue(this.getValue(), this.getUnit(), toUnit);
-        return new Temperature(toUnit, value);
+        double value1 = toUnit.toBase(this.getValue());
+
+//        double value = calculateValue(this.getValue(), this.getUnit(), toUnit);
+        return new Temperature(toUnit, value1);
     }
 
     @Override

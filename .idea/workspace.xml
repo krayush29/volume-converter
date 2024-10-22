@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="def187fd-9fda-4eaa-abd5-18bfb2026f64" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/MetricUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/MetricUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/TemperatureUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/TemperatureUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/VolumeUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/VolumeUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/Addable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/Addable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/Metric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/Metric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/implementation/Temperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/implementation/Temperature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/implementation/Volume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/implementation/Volume.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +37,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -53,6 +60,16 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Gradle.LengthTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LengthTest.test5MeterToMilliMeter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LengthTest.testExceptionDecimeterToMilliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LengthTest.testMilliMeterToMilliMeter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TemperatureTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TemperatureTest.test22CelsiusTo100Fahrenheit.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TemperatureTest.test32CelsiusToFahrenheit.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TemperatureTest.testCompare100FahrenheitTo100Fahrenheit.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TemperatureTest.testCompare100FahrenheitTo32Celsius.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TemperatureTest.testCompare89FahrenheitTo32Celsius.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.VolumeConvertorTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.VolumeConvertorTest.test23LiterToDeciliter.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.VolumeConvertorTest.test3LiterToDeciliter.executor&quot;: &quot;Run&quot;,
@@ -69,6 +86,23 @@
     &quot;Gradle.VolumeConvertorTest.testMilliliterToDeciliter.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.VolumeConvertorTest.testMilliliterToLiter.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.VolumeConvertorTest.testMilliliterToMilliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.test5LiterToMilliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testAdd1CentiliterTo1Liter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testAdd1LiterTo1Milliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testAdd5DeciliterTo70Milliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testAdd5LiterTo3000Milliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testCompare1000CentiliterTo1DecaLiter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testCompare5LiterTo4000Milliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testCompare5LiterTo5000Milliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testCompare5LiterTo6000Milliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testExceptionDeciliterToMilliGram.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testSubtract5DeciliterTo70Milliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VolumeTest.testSubtract5LiterTo3000Milliliter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.WeightTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.WeightTest.test1000CentigramTo1DecaGram.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.WeightTest.test5GramToMilligram.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.WeightTest.testConvertDecigramToKilometer.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
@@ -80,6 +114,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -91,8 +126,8 @@
       <recent name="org.example.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.VolumeConvertorTest.testDeciliterToMilliliter">
-    <configuration name="VolumeConvertorTest.test5LiterToMilliliter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.VolumeTest">
+    <configuration name="LengthTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -105,7 +140,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.service.VolumeConvertorTest.test5LiterToMilliliter&quot;" />
+            <option value="&quot;org.example.service.LengthTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -116,7 +151,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="VolumeConvertorTest.testDeciliterToMilliliter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TemperatureTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -129,7 +164,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.service.VolumeConvertorTest.testDeciliterToMilliliter&quot;" />
+            <option value="&quot;org.example.service.TemperatureTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -140,7 +175,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="VolumeConvertorTest.testExceptionForInvalidConversion" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="VolumeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -153,7 +188,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.service.VolumeConvertorTest.testExceptionForInvalidConversion&quot;" />
+            <option value="&quot;org.example.service.VolumeTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -164,7 +199,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="VolumeConvertorTest.testMilliliterToDeciliter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WeightTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -177,7 +212,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.service.VolumeConvertorTest.testMilliliterToDeciliter&quot;" />
+            <option value="&quot;org.example.service.WeightTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -188,7 +223,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="VolumeConvertorTest.testMilliliterToMilliliter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WeightTest.test1000CentigramTo1DecaGram" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -201,7 +236,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.service.VolumeConvertorTest.testMilliliterToMilliliter&quot;" />
+            <option value="&quot;org.example.service.WeightTest.test1000CentigramTo1DecaGram&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -214,11 +249,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.VolumeConvertorTest.testDeciliterToMilliliter" />
-        <item itemvalue="Gradle.VolumeConvertorTest.testMilliliterToMilliliter" />
-        <item itemvalue="Gradle.VolumeConvertorTest.testMilliliterToDeciliter" />
-        <item itemvalue="Gradle.VolumeConvertorTest.test5LiterToMilliliter" />
-        <item itemvalue="Gradle.VolumeConvertorTest.testExceptionForInvalidConversion" />
+        <item itemvalue="Gradle.VolumeTest" />
+        <item itemvalue="Gradle.LengthTest" />
+        <item itemvalue="Gradle.WeightTest" />
+        <item itemvalue="Gradle.TemperatureTest" />
+        <item itemvalue="Gradle.WeightTest.test1000CentigramTo1DecaGram" />
       </list>
     </recent_temporary>
   </component>
@@ -239,10 +274,140 @@
       <updated>1726566040421</updated>
       <workItem from="1726566041506" duration="8433000" />
       <workItem from="1726631010391" duration="212000" />
+      <workItem from="1726717885717" duration="41173000" />
+      <workItem from="1726828184070" duration="5175000" />
+      <workItem from="1727063401606" duration="8937000" />
+      <workItem from="1727082760491" duration="2502000" />
+      <workItem from="1728531457507" duration="24000" />
+      <workItem from="1729061996538" duration="768000" />
+      <workItem from="1729334832845" duration="85000" />
     </task>
+    <task id="LOCAL-00001" summary="Use Abstract class instead of Interface, Move redundant method to abstract class.">
+      <option name="closed" value="true" />
+      <created>1726660806597</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726660806597</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add Lombok Dependency, Improve Add Implementation, Fix Spaces.">
+      <option name="closed" value="true" />
+      <created>1726722215460</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726722215460</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Improve MetricRepository and Convert method of metric class.">
+      <option name="closed" value="true" />
+      <created>1726724960532</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726724960532</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Move Unit and Value to Parent Class.">
+      <option name="closed" value="true" />
+      <created>1726727266409</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726727266409</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Specify the MetricUnit to restrict the object creation.">
+      <option name="closed" value="true" />
+      <created>1726727403919</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726727403919</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Implemented Add, Subtract, Compare for add tree use-cases.">
+      <option name="closed" value="true" />
+      <created>1726733768594</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726733768594</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Refactor the code to Return Metric for convert, add, subtract method instead of Double.">
+      <option name="closed" value="true" />
+      <created>1726747249597</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726747249597</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Implement Temperature use-case, remove abstract class to make it more flexible.">
+      <option name="closed" value="true" />
+      <created>1726826206638</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726826206638</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Restrict conversion form one metric to others.">
+      <option name="closed" value="true" />
+      <created>1726828572100</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726828572100</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add Temperature compare test, add notnull annotation, add todo.">
+      <option name="closed" value="true" />
+      <created>1727063993492</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727063993492</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Convert MetricUnit as a Generic for the Implementations.">
+      <option name="closed" value="true" />
+      <created>1727065709375</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727065709375</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Removed unused generic MetricUnit from Addable interface.">
+      <option name="closed" value="true" />
+      <created>1727066520349</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727066520349</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Use Abstract class instead of Interface, Move redundant method to abstract class." />
+    <MESSAGE value="Add Lombok Dependency, Improve Add Implementation, Fix Spaces." />
+    <MESSAGE value="Improve MetricRepository and Convert method of metric class." />
+    <MESSAGE value="Move Unit and Value to Parent Class." />
+    <MESSAGE value="Specify the MetricUnit to restrict the object creation." />
+    <MESSAGE value="Implemented Add, Subtract, Compare for add tree use-cases." />
+    <MESSAGE value="Refactor the code to Return Metric for convert, add, subtract method instead of Double." />
+    <MESSAGE value="Implement Temperature use-case, remove abstract class to make it more flexible." />
+    <MESSAGE value="Restrict conversion form one metric to others." />
+    <MESSAGE value="Add Temperature compare test, add notnull annotation, add todo." />
+    <MESSAGE value="Convert MetricUnit as a Generic for the Implementations." />
+    <MESSAGE value="Removed unused generic MetricUnit from Addable interface." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unused generic MetricUnit from Addable interface." />
   </component>
 </project>
